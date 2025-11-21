@@ -5,97 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Learn about Aranya Homecare Services, founded by Archana Dubay. Compassionate, professional senior care on Vancouver Island.">
     <title>About Us | Aranya Homecare Services</title>
-
-    <!-- BC Sans Fallback: Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-    
     <style>
-        :root {
-            --blue: #2563eb;
-            --pink: #fdb8d0;
-            --soft-pink: #fef5f9;
-            --white: #ffffff;
-            --gray: #f9f9f9;
-            --light-gray: #f3f4f6;
-            --text: #1f2937;
-            --light-text: #4b5563;
+        :root{
+            --blue:#2563eb;--pink:#fdb8d0;--soft-pink:#fef5f9;--white:#fff;--gray:#f9f9f9;--light-gray:#f3f4f6;--text:#1f2937;--light-text:#4b5563;
         }
-
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Inter', 'BC Sans', system-ui, sans-serif; font-size: 18px; line-height: 1.7; color: var(--text); background: var(--white); }
-        h1, h2, h3 { color: var(--blue); font-weight: 700; }
-        a { color: var(--blue); text-decoration: none; }
-        a:hover, a:focus { color: #1d4ed8; }
-        .container { width: min(100% - 2rem, 1200px); margin-inline: auto; }
-
-        /* Header (same as index.html with mobile hamburger) */
-        header { position: sticky; top: 0; background: var(--white); z-index: 1000; border-bottom: 1px solid #e5e7eb; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-        header.scrolled { box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
-        .header-inner { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; }
-        .logo { display: flex; align-items: center; gap: 0.5rem; font-weight: 700; font-size: 1.5rem; color: var(--blue); }
-        .logo-img { width: 40px; height: 40px; background: var(--pink); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--blue); }
-
-        /* Desktop Nav */
-        .nav-desktop ul { display: flex; gap: 2rem; list-style: none; }
-        .nav-desktop a { font-weight: 600; position: relative; padding: 0.5rem 0; }
-        .nav-desktop a::after { content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 2px; background: var(--pink); transition: width 0.3s; transform: translateX(-50%); }
-        .nav-desktop a:hover::after { width: 100%; }
-
-        /* Hamburger */
-        .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
-        .hamburger span { display: block; height: 3px; background: var(--blue); border-radius: 3px; transition: all 0.3s; position: absolute; width: 28px; }
-        .hamburger span:nth-child(1) { top: 0; }
-        .hamburger span:nth-child(2) { top: 8px; }
-        .hamburger span:nth-child(3) { top: 16px; }
-        .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: rotate(45deg); top: 8px; }
-        .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
-        .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: rotate(-45deg); top: 8px; }
-
-        /* Mobile Nav */
-        .nav-mobile { position: fixed; top: 0; right: -100%; width: 80%; max-width: 300px; height: 100vh; background: var(--white); padding: 6rem 2rem 2rem; transition: right 0.35s ease; box-shadow: -4px 0 15px rgba(0,0,0,0.1); z-index: 1000; }
-        .nav-mobile.open { right: 0; }
-        .nav-mobile ul { display: flex; flex-direction: column; gap: 1.5rem; list-style: none; }
-        .nav-mobile a { display: block; font-weight: 600; font-size: 1.2rem; padding: 0.75rem 0; border-bottom: 1px solid #e5e7eb; }
-
-        .nav-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); opacity: 0; visibility: hidden; transition: all 0.35s; z-index: 999; }
-        .nav-overlay.open { opacity: 1; visibility: visible; }
-
-        .btn { display: inline-block; background: var(--blue); color: white; padding: 0.9rem 2rem; border-radius: 8px; font-weight: 600; transition: all 0.3s; box-shadow: 0 4px 6px rgba(37,99,235,0.2); }
-        .btn:hover { background: #1d4ed8; transform: translateY(-2px); }
-
-        .placeholder-img { background: #e5e7eb; border: 2px dashed #9ca3 }
-
-        section { padding: 4rem 0; opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
-        section.visible { opacity: 1; transform: translateY(0); }
-
-        .hero-section { background: var(--gray); text-align: center; padding: 6rem 0; }
-        .section-title { text-align: center; font-size: 2.2rem; margin-bottom: 3rem; }
-
-        .grid-3 { display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
-        .card { background: var(--light-gray); padding: 2rem; border-radius: 12px; text-align: center; transition: transform 0.3s; }
-        .card:hover { transform: translateY(-6px); }
-
-        footer { background: var(--blue); color: white; padding: 2.5rem 0; text-align: center; font-size: 0.95rem; }
-        .footer-links { display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center; margin-bottom: 1rem; }
-        .footer-links a { color: white; font-weight: 500; }
-        .social-icons a { width: 40px; height: 40px; background: rgba(255,255,255,0.2); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; }
-
-        @media (max-width: 768px) {
-            .nav-desktop { display: none; }
-            .nav-toggle { display: block; }
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+        body{font-family:'Inter','BC Sans',system-ui,sans-serif;font-size:18px;line-height:1.7;color:var(--text);background:var(--white);}
+        h1,h2,h3{color:var(--blue);font-weight:700;}
+        a{color:var(--blue);text-decoration:none;}
+        a:hover,a:focus{color:#1d4ed8;}
+        .container{width:min(100% - 2rem,1200px);margin:auto;}
+        header{position:sticky;top:0;background:var(--white);z-index:1000;border-bottom:1px solid #e5e7eb;box-shadow:0 1px 3px rgba(0,0,0,0.1);}
+        header.scrolled{box-shadow:0 4px 6px -1px rgba(0,0,0,0.1);}
+        .header-inner{display:flex;justify-content:space-between;align-items:center;padding:1rem 0;}
+        .logo{display:flex;align-items:center;gap:.5rem;font-weight:700;font-size:1.5rem;color:var(--blue);}
+        .logo-img{width:40px;height:40px;background:var(--pink);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--blue);font-weight:bold;}
+        .nav-desktop ul{display:flex;gap:2rem;list-style:none;}
+        .nav-desktop a{font-weight:600;position:relative;padding:.5rem 0;}
+        .nav-desktop a::after{content:'';position:absolute;bottom:0;left:50%;width:0;height:2px;background:var(--pink);transition:.3s;transform:translateX(-50%);}
+        .nav-desktop a:hover::after{width:100%;}
+        .nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:.5rem;}
+        .hamburger span{display:block;height:3px;background:var(--blue);border-radius:3px;transition:all .3s;position:absolute;width:28px;}
+        .hamburger span:nth-child(1){top:0;}.hamburger span:nth-child(2){top:8px;}.hamburger span:nth-child(3){top:16px;}
+        .nav-toggle[aria-expanded="true"] span:nth-child(1){transform:rotate(45deg);top:8px;}
+        .nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0;}
+        .nav-toggle[aria-expanded="true"] span:nth-child(3){transform:rotate(-45deg);top:8px;}
+        .nav-mobile{position:fixed;top:0;right:-100%;width:80%;max-width:300px;height:100vh;background:var(--white);padding:6rem 2rem 2rem;transition:right .35s ease;box-shadow:-4px 0 15px rgba(0,0,0,0.1);z-index:1000;}
+        .nav-mobile.open{right:0;}
+        .nav-mobile ul{display:flex;flex-direction:column;gap:1.5rem;list-style:none;}
+        .nav-mobile a{display:block;font-weight:600;font-size:1.2rem;padding:.75rem 0;border-bottom:1px solid #e5e7eb;}
+        .nav-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);opacity:0;visibility:hidden;transition:all .35s;z-index:999;}
+        .nav-overlay.open{opacity:1;visibility:visible;}
+        .btn{display:inline-block;background:var(--blue);color:white;padding:.9rem 2rem;border-radius:8px;font-weight:600;transition:all .3s;box-shadow:0 4px 6px rgba(37,99,235,0.2);}
+        .btn:hover{background:#1d4ed8;transform:translateY(-2px);}
+        /* ← FIXED PLACEHOLDER IMG RULE → */
+        .placeholder-img{
+            background:#e5e7eb;
+            border:2px dashed #9ca3af;
+            border-radius:12px;
+            height:300px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            margin:2rem auto;
+            max-width:800px;
+            color:#6b7280;
+            font-style:italic;
+            text-align:center;
+            padding:1rem;
         }
+        section{padding:4rem 0;opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s;}
+        section.visible{opacity:1;transform:translateY(0);}
+        .hero-section{background:var(--gray);text-align:center;padding:6rem 0;}
+        .section-title{text-align:center;font-size:2.2rem;margin-bottom:3rem;}
+        .grid-3{display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));}
+        .card{background:var(--light-gray);padding:2rem;border-radius:12px;text-align:center;transition:transform .3s;box-shadow:0 4px 6px rgba(0,0,0,0.05);}
+        .card:hover{transform:translateY(-6px);}
+        footer{background:var(--blue);color:white;padding:2.5rem 0;text-align:center;font-size:.95rem;}
+        .footer-links{display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:center;margin-bottom:1rem;}
+        .footer-links a{color:white;font-weight:500;}
+        .social-icons a{width:40px;height:40px;background:rgba(255,255,255,.2);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;margin:0 .5rem;}
+        @media(max-width:768px){.nav-desktop{display:none;}.nav-toggle{display:block;}}
     </style>
 </head>
 <body>
 
-<!-- ====================== HEADER ====================== -->
 <header id="main-header">
     <div class="container header-inner">
-        <a href="index.html" class="logo">
-            <div class="logo-img">A</div>
-            <span>Aranya Homecare</span>
-        </a>
-
+        <a href="index.html" class="logo"><div class="logo-img">A</div><span>Aranya Homecare</span></a>
         <nav class="nav-desktop">
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -104,12 +82,10 @@
                 <li><a href="contact.html">Contact Us</a></li>
             </ul>
         </nav>
-
         <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
             <span class="hamburger"><span></span><span></span><span></span></span>
         </button>
     </div>
-
     <nav class="nav-mobile" id="mobile-menu">
         <ul>
             <li><a href="index.html">Home</a></li>
@@ -121,97 +97,67 @@
     <div class="nav-overlay"></div>
 </header>
 
-<!-- ====================== ABOUT PAGE CONTENT ====================== -->
 <main>
     <section class="hero-section">
         <div class="container">
             <h1>Our Story</h1>
-            <p style="max-width: 800px; margin: 1.5rem auto; font-size: 1.2rem; color: var(--light-text);">
+            <p style="max-width:800px;margin:1.5rem auto;font-size:1.2rem;color:var(--light-text);">
                 Aranya Homecare Services was founded by Archana Dubay with a vision to bring compassionate, reliable, and personalized care to families across Vancouver Island.
             </p>
-            <div class="placeholder-img">
-                [Placeholder Image: Archana Dubay portrait or symbolic care team image]
-            </div>
+            <div class="placeholder-img">[Placeholder Image: Archana Dubay portrait or symbolic care team image]</div>
         </div>
     </section>
 
-    <section style="background: var(--white);">
+    <section style="background:var(--white);">
         <div class="container">
             <h2 class="section-title">Our Mission & Values</h2>
             <div class="grid-3">
-                <div class="card">
-                    <div style="font-size: 3.5rem; margin-bottom: 1rem;">❤️</div>
-                    <h3>Compassion</h3>
-                    <p>We care deeply and treat every client with kindness, dignity, and respect.</p>
-                </div>
-                <div class="card">
-                    <div style="font-size: 3.5rem; margin-bottom: 1rem;">🛡️</div>
-                    <h3>Integrity</h3>
-                    <p>We uphold honesty, transparency, and ethical standards in everything we do.</p>
-                </div>
-                <div class="card">
-                    <div style="font-size: 3.5rem; margin-bottom: 1rem;">✅</div>
-                    <h3>Dependability</h3>
-                    <p>You can count on us to be there when you need us — every single time.</p>
-                </div>
+                <div class="card"><div style="font-size:3.5rem;margin-bottom:1rem;">❤️</div><h3>Compassion</h3><p>We care deeply and treat every client with kindness, dignity, and respect.</p></div>
+                <div class="card"><div style="font-size:3.5rem;margin-bottom:1rem;">🛡️</div><h3>Integrity</h3><p>We uphold honesty, transparency, and ethical standards in everything we do.</p></div>
+                <div class="card"><div style="font-size:3.5rem;margin-bottom:1rem;">✅</div><h3>Dependability</h3><p>You can count on us to be there when you need us — every single time.</p></div>
             </div>
         </div>
     </section>
 
-    <section style="background: var(--gray);">
+    <section style="background:var(--gray);">
         <div class="container">
             <h2 class="section-title">Meet Our Caring Team</h2>
             <div class="grid-3">
-                <div class="card">
-                    <div style="width:120px; height:120px; border-radius:50%; background:#ddd; margin:0 auto 1rem;"></div>
-                    <h3>Archana Dubay</h3>
-                    <p><em>Founder & Care Director</em></p>
-                    <p>With over 15 years in senior care, Archana leads with empathy and expertise.</p>
-                </div>
-                <div class="card">
-                    <div style="width:120px; height:120px; border-radius:50%; background:#ddd; margin:0 auto 1rem;"></div>
-                    <h3>Maria Chen</h3>
-                    <p><em>Senior Caregiver</em></p>
-                    <p>Specialized in dementia support and companionship.</p>
-                </div>
-                <div class="card">
-                    <div style="width:120px; height:120px; border-radius:50%; background:#ddd; margin:0 auto 1rem;"></div>
-                    <h3>James Patel</h3>
-                    <p><em>Personal Support Worker</em></p>
-                    <p>Expert in mobility assistance and daily living support.</p>
-                </div>
+                <div class="card"><div style="width:120px;height:120px;border-radius:50%;background:#ddd;margin:0 auto 1rem;"></div><h3>Archana Dubay</h3><p><em>Founder & Care Director</em></p><p>With over 15 years in senior care, Archana leads with empathy and expertise.</p></div>
+                <div class="card"><div style="width:120px;height:120px;border-radius:50%;background:#ddd;margin:0 auto 1rem;"></div><h3>Maria Chen</h3><p><em>Senior Caregiver</em></p><p>Specialized in dementia support and companionship.</p></div>
+                <div class="card"><div style="width:120px;height:120px;border-radius:50%;background:#ddd;margin:0 auto 1rem;"></div><h3>James Patel</h3><p><em>Personal Support Worker</em></p><p>Expert in mobility assistance and daily living support.</p></div>
             </div>
-            <div class="placeholder-img" style="height: 250px; margin-top: 3rem;">
-                [Placeholder Image: team of caregivers smiling together]
-            </div>
+            <div class="placeholder-img" style="height:250px;margin-top:3rem;">[Placeholder Image: team of caregivers smiling together]</div>
         </div>
     </section>
 
-    <section style="background: var(--soft-pink); text-align: center; padding: 4rem 0;">
+    <section style="background:var(--soft-pink);text-align:center;padding:4rem 0;">
         <div class="container">
-            <h2 style="margin-bottom: 1.5rem;">Ready to experience care that feels like family?</h2>
+            <h2 style="margin-bottom:1.5rem;">Ready to experience care that feels like family?</h2>
             <a href="contact.html" class="btn">Book a Free Consultation</a>
         </div>
     </section>
 </main>
 
-<!-- ====================== FOOTER ====================== -->
 <footer>
     <div class="container">
         <div class="footer-links">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="services.html">Services</a>
-            <a href="contact.html">Contact</a>
-            <a href="#">Privacy Policy</a>
+            <a href="index.html">Home</a> <a href="about.html">About</a> <a href="services.html">Services</a> <a href="contact.html">Contact</a> <a href="#">Privacy Policy</a>
         </div>
         <div class="social-icons">
-            <a href="#" aria-label="Facebook">Facebook</a>
-            <a href="#" aria-label="Instagram">Instagram</a>
+            <a href="#" aria-label="Facebook">FB</a> <a href="#" aria-label="Instagram">IG</a>
         </div>
         <p>© 2025 Aranya Homecare Services. All Rights Reserved. Owned by Archana Dubay.</p>
     </div>
 </footer>
 
 <script>
-    // Mobile menu, sticky
+    const navToggle=document.querySelector('.nav-toggle'),navMobile=document.querySelector('.nav-mobile'),overlay=document.querySelector('.nav-overlay'),header=document.getElementById('main-header');
+    navToggle.addEventListener('click',()=>{const e=navToggle.getAttribute('aria-expanded')==='true';navToggle.setAttribute('aria-expanded',!e);navMobile.classList.toggle('open',!e);overlay.classList.toggle('open',!e);document.body.style.overflow=e?'':'hidden';});
+    overlay.addEventListener('click',()=>{navToggle.setAttribute('aria-expanded','false');navMobile.classList.remove('open');overlay.classList.remove('open');document.body.style.overflow='';});
+    window.addEventListener('scroll',()=>{header.classList.toggle('scrolled',window.scrollY>50);});
+    const observer=new IntersectionObserver(e=>{e.forEach(t=>{if(t.isIntersecting)t.target.classList.add('visible');});},{threshold:0.1});
+    document.querySelectorAll('section').forEach(s=>observer.observe(s));
+</script>
+</body>
+</html>
