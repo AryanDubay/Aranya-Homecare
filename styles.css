@@ -150,12 +150,13 @@ header.scrolled { box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
 
 .hero .btn:hover {
     background: #1d4ed8;
+    color: var(--soft-pink);
     transform: translateY(-5px);
 }
 
 /* ====================== REST OF YOUR STYLES (unchanged) ====================== */
 .btn { display: inline-block; background: var(--blue); color: white; padding: .9rem 2rem; border-radius: 8px; font-weight: 600; font-size: 1.1rem; transition: all .3s; box-shadow: 0 4px 6px rgba(37,99,235,.2); cursor: pointer; }
-.btn:hover, .btn:focus { background: #1d4ed8; transform: translateY(-2px); box-shadow: 0 6px 12px rgba(37,99,235,.3); }
+.btn:hover, .btn:focus { background: #1d4ed8; color: var(--soft-pink); transform: translateY(-2px); box-shadow: 0 6px 12px rgba(37,99,235,.3);  }
 
 .placeholder-img {
     background: #e5e7eb;
