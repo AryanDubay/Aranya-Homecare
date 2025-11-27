@@ -7,12 +7,18 @@
     <title>Contact Us | Aranya Homecare Services</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css"> <!-- Make sure this points to the NEW styles.css I gave you last time -->
+    <!-- FAVICON (works everywhere – PNG + fallback) -->
+    <link rel="icon" type="image/x-icon" href="favicon\favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <link rel="shortcut icon" href="favicon.png">
 </head>
 <body>
 
 <header id="main-header">
     <div class="container header-inner">
-        <a href="index.html" class="logo"><div class="logo-img">A</div><span>Aranya Homecare</span></a>
+    <a href="index.html" class="logo" aria-label="Aranya Homecare Home">
+        <img src="images/logoSmall.png" alt="Aranya Homecare Logo" class="logo-svg">
+    </a>
         <nav class="nav-desktop">
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -70,9 +76,15 @@
 
     <section style="background:var(--gray);padding:3rem 0;">
         <div class="container">
-            <div style="height:400px;background:#ddd;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#666;font-style:italic;">
-                [Embedded Google Map – Victoria, BC Service Area]
-            </div>
+            <iframe
+                src="https://www.google.com/maps/d/u/0/embed?mid=1FW2Neb700fjLZ1PQUDsuRblfaIfXaLc&ehbc=2E312F&noprof=1"
+                width="100%"
+                height="400"
+                style="border:0;border-radius:12px;"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Aranya Homecare Service Area"
+            ></iframe>
         </div>
     </section>
 </main>
@@ -88,7 +100,7 @@
         </div>
 
         <div class="social-icons">
-            <a href="https://www.facebook.com/p/Aranya-Home-Care-Services-100069856868547/" 
+<a href="https://www.facebook.com/p/Aranya-Home-Care-Services-100069856868547/" 
                target="_blank" 
                rel="noopener" 
                aria-label="Follow us on Facebook">
@@ -107,7 +119,10 @@
             </a>
         </div>
 
-        <p>&copy; 2025 Aranya Homecare Services. All Rights Reserved.</p>
+        <p>&copy; 2025 Aranya Homecare Services. All Rights Reserved. Owned by Archana Dubay.</p>
+        <p style="font-size:0.85rem; margin-top:0.5rem; color:rgba(255,255,255,0.8);">
+            Images by <a href="https://www.freepik.com" target="_blank" style="color:white; text-decoration:underline;">Freepik</a>
+        </p>
     </div>
 </footer>
 

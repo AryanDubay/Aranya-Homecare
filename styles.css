@@ -13,7 +13,7 @@
 
 body {
     font-family: 'Inter', 'BC Sans', system-ui, sans-serif;
-    font-size: 18px;
+    font-size: 1.18rem;
     line-height: 1.7;
     color: var(--text);
     background: var(--white);
@@ -39,11 +39,38 @@ header {
 }
 header.scrolled { box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
 
-.header-inner { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; }
+.header-inner { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 1rem 0; 
+}
 
-.logo { display: flex; align-items: center; gap: .5rem; font-weight: 700; font-size: 1.5rem; color: var(--blue); }
-.logo-img { width: 40px; height: 40px; background: var(--pink); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--blue); }
+/* ——— NEW: Real SVG Logo (replaces text + pink A) ——— */
+.logo {
+    display: block;
+    height: 56px;           /* controls logo height on desktop */
+    width: auto;
+}
 
+.logo-svg {
+    height: 100%;
+    width: auto;
+    display: block;
+}
+
+/* Mobile logo slightly smaller */
+@media (max-width: 768px) {
+    .logo { height: 48px; }
+}
+
+/* Old text + circle logo (hidden now that we use real SVG) */
+.logo-img,
+.logo span {
+    display: none !important;
+}
+
+/* Rest of nav stays the same */
 .nav-desktop ul { display: flex; gap: 2rem; list-style: none; }
 .nav-desktop a { font-weight: 600; position: relative; padding: .5rem 0; }
 .nav-desktop a::after { content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 2px; background: var(--pink); transition: width .3s; transform: translateX(-50%); }
@@ -86,7 +113,6 @@ header.scrolled { box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
     z-index: -1;
 }
 
-/* Dark overlay so text is readable */
 .hero-bg::before {
     content: '';
     position: absolute;
@@ -123,41 +149,15 @@ header.scrolled { box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
 }
 
 .hero .btn:hover {
-    color: #e5e7eb;
     background: #1d4ed8;
     transform: translateY(-5px);
 }
 
-/* ====================== OTHER STYLES ====================== */
-.btn {
-    display: inline-block;
-    background: var(--blue);
-    color: white;
-    padding: .9rem 2rem;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 1.1rem;
-    transition: all .3s;
-    box-shadow: 0 4px 6px rgba(37,99,235,.2);
-    cursor: pointer;
-}
+/* ====================== REST OF YOUR STYLES (unchanged) ====================== */
+.btn { display: inline-block; background: var(--blue); color: white; padding: .9rem 2rem; border-radius: 8px; font-weight: 600; font-size: 1.1rem; transition: all .3s; box-shadow: 0 4px 6px rgba(37,99,235,.2); cursor: pointer; }
 .btn:hover, .btn:focus { background: #1d4ed8; transform: translateY(-2px); box-shadow: 0 6px 12px rgba(37,99,235,.3); }
 
-.placeholder-img {
-    background: #e5e7eb;
-    border: 2px dashed #9ca3af;
-    border-radius: 12px;
-    height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 2rem auto;
-    max-width: 800px;
-    color: #6b7280;
-    font-style: italic;
-    text-align: center;
-    padding: 1rem;
-}
+.placeholder-img { background: #e5e7eb; border: 2px dashed #9ca3af; border-radius: 12px; height: 300px; display: flex; align-items: center; justify-content: center; margin: 2rem auto; max-width: 800px; color: #6b7280; font-style: italic; text-align: center; padding: 1rem; }
 
 section { padding: 4rem 0; opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
 section.visible { opacity: 1; transform: translateY(0); }
@@ -179,7 +179,6 @@ section.visible { opacity: 1; transform: translateY(0); }
 .cta-section { padding: 4rem 0; background: var(--soft-pink); text-align: center; }
 .cta-section h2 { font-size: 2.2rem; margin-bottom: 1.5rem; color: var(--blue); }
 
-/* Services & Contact Page */
 .service-item { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; margin-bottom: 4rem; }
 .service-item:nth-child(even) { direction: rtl; }
 .service-item:nth-child(even) > * { direction: ltr; }
@@ -189,13 +188,11 @@ form { display: grid; gap: 1rem; max-width: 600px; margin: auto; }
 input, textarea { width: 100%; padding: .9rem; border: 1px solid #d1d5db; border-radius: 8px; font-size: 1rem; transition: border .3s; }
 input:focus, textarea:focus { outline: none; border-color: var(--pink); box-shadow: 0 0 0 3px rgba(253,184,208,.3); }
 
-/* Footer */
 footer { background: var(--blue); color: white; padding: 2.5rem 0; text-align: center; font-size: .95rem; }
 .footer-links { display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center; margin-bottom: 1rem; }
 .footer-links a { color: white; font-weight: 500; }
 .social-icons a { width: 40px; height: 40px; background: rgba(255,255,255,.2); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin: 0 .5rem; }
 
-/* Responsive */
 @media (max-width: 768px) {
     .nav-desktop { display: none; }
     .nav-toggle { display: block; position: absolute; top: 50%; right: 1.5rem; transform: translateY(-50%); }

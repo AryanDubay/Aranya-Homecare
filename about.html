@@ -6,12 +6,18 @@
     <title>About Us | Aranya Homecare Services</title> <!-- change title per page -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <!-- FAVICON (works everywhere – PNG + fallback) -->
+    <link rel="icon" type="image/x-icon" href="favicon\favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <link rel="shortcut icon" href="favicon.png">
 </head>
 <body>
 
 <header id="main-header">
     <div class="container header-inner">
-        <a href="index.html" class="logo"><div class="logo-img">A</div><span>Aranya Homecare</span></a>
+        <a href="index.html" class="logo" aria-label="Aranya Homecare Home">
+            <img src="images/logoSmall.png" alt="Aranya Homecare Logo" class="logo-svg">
+        </a>
         <nav class="nav-desktop">
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -69,7 +75,6 @@
     </section>
 </main>
 
-<!-- ====================== FOOTER ====================== -->
 <footer>
     <div class="container">
         <div class="footer-links">
@@ -81,7 +86,7 @@
         </div>
 
         <div class="social-icons">
-            <a href="https://www.facebook.com/p/Aranya-Home-Care-Services-100069856868547/" 
+<a href="https://www.facebook.com/p/Aranya-Home-Care-Services-100069856868547/" 
                target="_blank" 
                rel="noopener" 
                aria-label="Follow us on Facebook">
@@ -101,6 +106,9 @@
         </div>
 
         <p>&copy; 2025 Aranya Homecare Services. All Rights Reserved. Owned by Archana Dubay.</p>
+        <p style="font-size:0.85rem; margin-top:0.5rem; color:rgba(255,255,255,0.8);">
+            Images by <a href="https://www.freepik.com" target="_blank" style="color:white; text-decoration:underline;">Freepik</a>
+        </p>
     </div>
 </footer>
 
