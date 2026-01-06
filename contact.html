@@ -135,6 +135,7 @@
     const observer=new IntersectionObserver(e=>{e.forEach(t=>{if(t.isIntersecting)t.target.classList.add('visible');});},{threshold:0.1});
     document.querySelectorAll('section').forEach(s=>observer.observe(s));
 </script>
+<script src="https://unpkg.com/libphonenumber-js@1.9.53/bundle/libphonenumber-js.min.js"></script>
 
 <script>
     // Contact form: validate, submit via fetch, and show success or error message
@@ -173,7 +174,26 @@
             if(!name.value.trim()){ name.classList.add('field-error'); name.focus(); showMessage('error','Please enter your name.'); return; }
             const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value);
             if(!email.value.trim() || !emailValid){ email.classList.add('field-error'); email.focus(); showMessage('error','Please enter a valid email.'); return; }
-            if(!phone.value.trim()){ phone.classList.add('field-error'); phone.focus(); showMessage('error','Please enter your phone number.'); return; }
+
+            const phoneVal = phone.value.trim();
+            if(!phoneVal){ phone.classList.add('field-error'); phone.focus(); showMessage('error','Please enter your phone number.'); return; }
+
+            // Validate phone using libphonenumber-js if available, otherwise fallback to a permissive regex
+            let phoneValid = false;
+            try{
+                if(typeof parsePhoneNumberFromString === 'function'){
+                    const parsed = parsePhoneNumberFromString(phoneVal, 'CA');
+                    phoneValid = parsed ? parsed.isValid() : false;
+                } else {
+                    // Permissive fallback: must contain at least 7 digits (allows +, spaces, dashes, parentheses)
+                    phoneValid = /^(?:\+?\d[\d ()-]{5,}\d)$/.test(phoneVal);
+                }
+            }catch(err){
+                phoneValid = /^(?:\+?\d[\d ()-]{5,}\d)$/.test(phoneVal);
+            }
+
+            if(!phoneValid){ phone.classList.add('field-error'); phone.focus(); showMessage('error','Please enter a valid phone number.'); return; }
+
             if(!message.value.trim()){ message.classList.add('field-error'); message.focus(); showMessage('error','Please enter your message.'); return; }
 
             // Submit using fetch to Formspree (preserves original action)
