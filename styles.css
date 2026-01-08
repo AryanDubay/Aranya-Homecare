@@ -76,7 +76,7 @@ header.scrolled { box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
 .nav-desktop a::after { content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 2px; background: var(--pink); transition: width .3s; transform: translateX(-50%); }
 .nav-desktop a:hover::after, .nav-desktop a:focus::after { width: 100%; }
 
-.nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: .5rem; z-index: 1002;}
+.nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: .5rem;}
 .hamburger span { display: block; height: 3px; background: var(--blue); border-radius: 3px; transition: all .3s; position: absolute; width: 28px; }
 .hamburger span:nth-child(1) { top: 0; }
 .hamburger span:nth-child(2) { top: 8px; }
@@ -234,7 +234,7 @@ footer { background: var(--blue); color: white; padding: 2.5rem 0; text-align: c
 
 @media (max-width: 768px) {
     .nav-desktop { display: none; }
-    .nav-toggle { display: block; position: absolute; top: 50%; right: 1.5rem; transform: translateY(-50%); }
+    .nav-toggle { display: block; position: absolute; top: 50%; right: 1.5rem; transform: translateY(-50%); z-index: 1002; }
     .header-inner { padding: 1rem 1.5rem; position: relative; }
     .hero { min-height: 80vh; }
     .service-item, .service-item:nth-child(even) { grid-template-columns: 1fr; direction: ltr !important; }
