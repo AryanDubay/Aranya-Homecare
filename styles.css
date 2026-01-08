@@ -191,6 +191,15 @@ section.visible { opacity: 1; transform: translateY(0); }
 .grid-3 { display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
 .card { background: var(--light-gray); padding: 2rem; border-radius: 12px; text-align: center; transition: transform .3s, box-shadow .3s; box-shadow: 0 4px 6px rgba(0,0,0,.05); }
 .card:hover { transform: translateY(-6px); box-shadow: 0 10px 20px rgba(0,0,0,.1); }
+.card ul {
+    list-style-position: inside;    /* moves the bullet inside the text flow */
+    padding-left: 1.2rem;           /* controls how far the whole line (bullet + text) is indented – adjust to taste */
+    margin: 1rem 0;                 /* adds nice spacing above/below the list */
+}
+
+.card li {
+    margin-bottom: 0.5rem;          /* optional: adds a little space between items */
+}
 
 .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.8rem; margin-top: 2rem; }
 .service-card { background: white; padding: 1.8rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,.05); transition: all .3s; }
